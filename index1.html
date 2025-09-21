@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Studio Showcase</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+        /* --- Base & Typography --- */
+        :root {
+            --bg-color: #f8f9fa;
+            --text-color: #3c4043;
+            --purple-light: #A381FF;
+            --purple-dark: #7B52EF;
+            --purple-border: #5433A5;
+            --silver-light: #FEFEFE;
+            --silver-dark: #DBDBDB;
+            --silver-border: #D7D7D7;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        /* Animated Gradient Background for a subtle, lively feel */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at 15% 25%, rgba(163, 129, 255, 0.08), transparent 40%),
+                        radial-gradient(circle at 85% 75%, rgba(123, 82, 239, 0.08), transparent 40%);
+            animation: moveGradient 20s ease-in-out infinite alternate;
+        }
+
+        @keyframes moveGradient {
+            from { background-position: 0% 0%; }
+            to { background-position: 100% 100%; }
+        }
+
+        /* --- Custom Buttons (as per your exact specs) --- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 28px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 16px;
+            text-decoration: none;
+            transition: transform 0.2s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 0.2s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+        
+        /* Updated Purple Button */
+        .btn-purple {
+            color: white;
+            background-image: linear-gradient(to bottom, var(--purple-light), var(--purple-dark));
+            border: 1px solid var(--purple-border);
+            box-shadow: inset 0 2px 0px 0 rgba(255, 255, 255, 0.25), 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .btn-purple:hover {
+            
+            box-shadow: inset 0 4px 2px 0 rgba(255, 255, 255, 0.25), 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+        .btn-purple:active {
+            transform: translateY(0);
+        }
+
+        /* Silver Button */
+        .btn-silver {
+            color: var(--text-color);
+            background-image: linear-gradient(to bottom, var(--silver-light), var(--silver-dark));
+            border: 1px solid var(--silver-border);
+            box-shadow: inset 0 0 12px #FFFFFF, 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+        .btn-silver:hover {
+        
+            box-shadow: inset 0 0 12px #FFFFFF, 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+        .btn-silver:active {
+            transform: translateY(0);
+        }
+
+        /* --- Header --- */
+        .sticky-header {
+            transition: box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out;
+        }
+
+        /* --- App Card Micro-interactions --- */
+        .app-card .card-button {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .app-card:hover .card-button {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .app-card .card-icon {
+            transition: transform 0.3s ease;
+        }
+        .app-card:hover .card-icon {
+            transform: scale(1.08);
+        }
+
+        /* --- Animation Utilities --- */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header id="main-header" class="sticky-header sticky top-0 z-50 p-4 md:p-6 bg-white/70 backdrop-blur-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="flex items-center gap-2 text-xl font-bold tracking-tighter text-gray-800 transition-transform hover:scale-105">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-600" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 4a1 1 0 000 2 1 1 0 011 1v1H7a1 1 0 100 2h1v1a1 1 0 11-2 0 1 1 0 00-1-1 3 3 0 00-3 3 1 1 0 102 0 1 1 0 011-1h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V8a1 1 0 01-1-1 1 1 0 000-2z" clip-rule="evenodd" /></svg>
+                <span>Star</span>
+            </a>
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="#features" class="font-medium text-gray-600 hover:text-purple-600 transition-colors">Features</a>
+                <a href="#apps" class="font-medium text-gray-600 hover:text-purple-600 transition-colors">Apps</a>
+                <a href="#philosophy" class="font-medium text-gray-600 hover:text-purple-600 transition-colors">Philosophy</a>
+            </nav>
+            <a href="#apps" class="btn btn-silver hidden sm:inline-flex">View Apps</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 md:px-8 text-center">
+        
+        <!-- Hero Section -->
+        <section class="py-24 md:py-32">
+            <h1 class="text-4xl md:text-6xl font-bold tracking-tighter leading-tight max-w-4xl mx-auto">
+                Simple, Fun, and Beautifully Crafted Apps
+            </h1>
+            <p class="mt-6 text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
+                Explore our collection of apps designed with care, creativity, and a focus on user experience.
+            </p>
+            <div class="mt-10">
+                <a href="#apps" class="btn btn-purple">Explore Our Apps</a>
+            </div>
+        </section>
+
+        <!-- Core Features Section -->
+        <section id="features" class="py-16 md:py-24">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+                <!-- Feature 1 -->
+                <div class="fade-in p-6">
+                    <div class="flex items-center justify-center h-16 w-16 rounded-2xl bg-purple-100 text-purple-600 mx-auto mb-5 transition-transform hover:scale-110">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Fun & Engaging</h3>
+                    <p class="text-gray-600">Designed to be delightful and keep you entertained for hours.</p>
+                </div>
+                <!-- Feature 2 -->
+                <div class="fade-in p-6" style="transition-delay: 150ms;">
+                    <div class="flex items-center justify-center h-16 w-16 rounded-2xl bg-purple-100 text-purple-600 mx-auto mb-5 transition-transform hover:scale-110">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" /></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Beautifully Designed</h3>
+                    <p class="text-gray-600">Clean, modern interfaces that are a pleasure to look at and use.</p>
+                </div>
+                <!-- Feature 3 -->
+                <div class="fade-in p-6" style="transition-delay: 300ms;">
+                    <div class="flex items-center justify-center h-16 w-16 rounded-2xl bg-purple-100 text-purple-600 mx-auto mb-5 transition-transform hover:scale-110">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Intuitive Controls</h3>
+                    <p class="text-gray-600">Easy-to-learn mechanics so you can start having fun right away.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Apps Grid Section -->
+        <section id="apps" class="py-16 md:py-24">
+            <h2 class="fade-in text-3xl md:text-4xl font-bold tracking-tighter mb-12">Our App Collection</h2>
+            <div id="apps-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+                <!-- App cards will be dynamically inserted here by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Philosophy Section -->
+        <section id="philosophy" class="py-16 md:py-24">
+            <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="fade-in text-left">
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tighter mb-6">Our Design Philosophy</h2>
+                    <p class="text-gray-600 mb-4">We believe that the best applications are born from a simple principle: technology should be accessible, beautiful, and joyful. Every pixel is placed with purpose, and every interaction is designed to feel natural.</p>
+                    <p class="text-gray-600">Our goal isn't just to build apps, but to create small moments of delight in your daily life.</p>
+                </div>
+                <div class="fade-in" style="transition-delay: 200ms;">
+                    <div class="relative aspect-square bg-white rounded-3xl border border-gray-200/80 shadow-lg p-6">
+                        <div class="absolute inset-4 rounded-2xl bg-purple-50 flex items-center justify-center">
+                             <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-purple-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center py-16 px-6 border-t border-gray-200">
+        <p class="text-gray-500">&copy; <span id="current-year"></span> App Studio. A modern approach to mobile fun.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            /**
+             * Dynamically loads app data from a JSON file and populates the grid.
+             */
+            const loadApps = async () => {
+                const grid = document.getElementById('apps-grid');
+                if (!grid) return;
+
+                try {
+                    const response = await fetch('data.json');
+                    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                    const apps = await response.json();
+
+                    apps.forEach((app, index) => {
+                        const card = document.createElement('div');
+                        card.className = 'app-card fade-in text-center p-6 bg-white/60 backdrop-blur-sm rounded-3xl border border-gray-200/80 shadow-sm transition-all duration-300 hover:shadow-xl hover:border-gray-300/50';
+                        card.style.transitionDelay = `${index * 100}ms`;
+                        
+                        card.innerHTML = `
+                            <div style="transform-style: preserve-3d;">
+                                <img src="${app.iconUrl}" onerror="this.src='https://placehold.co/112x112/E2E8F0/3c4043?text=Icon'" alt="${app.name} Icon" class="card-icon w-28 h-28 mx-auto mb-5 rounded-[28px] shadow-md">
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">${app.name}</h3>
+                            <p class="text-gray-600 mb-6 min-h-[72px]">${app.description}</p>
+                            <a href="${app.playStoreUrl}" target="_blank" class="card-button btn btn-silver w-full">Get on Play Store</a>
+                        `;
+                        grid.appendChild(card);
+                    });
+                    
+                    initScrollObserver();
+                    initMouseTiltEffect();
+
+                } catch (error) {
+                    grid.innerHTML = '<p class="text-center text-red-500 col-span-full">Could not load app data. Please ensure data.json is available.</p>';
+                    console.error("Fetch error: ", error);
+                }
+            };
+
+            /**
+             * Initializes a 3D tilt effect on app cards based on mouse movement.
+             */
+            const initMouseTiltEffect = () => {
+                const cards = document.querySelectorAll('.app-card');
+                cards.forEach(card => {
+                    card.addEventListener('mousemove', (e) => {
+                        const { left, top, width, height } = card.getBoundingClientRect();
+                        const x = (e.clientX - left - width / 2) / (width / 2);
+                        const y = (e.clientY - top - height / 2) / (height / 2);
+                        
+                        const rotateX = y * -8;
+                        const rotateY = x * 8;
+
+                        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+                    });
+
+                    card.addEventListener('mouseleave', () => {
+                        card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)';
+                    });
+                });
+            };
+
+            /**
+             * Sets up an Intersection Observer to fade in elements as they enter the viewport.
+             */
+            const initScrollObserver = () => {
+                const targets = document.querySelectorAll('.fade-in');
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('is-visible');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.1 });
+
+                targets.forEach(target => observer.observe(target));
+            };
+
+            /**
+             * Adds a shadow to the header when the page is scrolled.
+             */
+            const initHeaderScroll = () => {
+                const header = document.getElementById('main-header');
+                window.addEventListener('scroll', () => {
+                    header.classList.toggle('shadow-md', window.scrollY > 10);
+                });
+            };
+
+            /**
+             * Updates the footer with the current year.
+             */
+            const updateYear = () => {
+                const yearSpan = document.getElementById('current-year');
+                if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+            };
+
+            /**
+             * Initialize all interactive components.
+             */
+            const init = () => {
+                loadApps();
+                updateYear();
+                initHeaderScroll();
+            };
+            
+            init();
+        });
+    </script>
+</body>
+</html>
+

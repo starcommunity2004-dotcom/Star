@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>star</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; line-height: 1.6; background: #f9f9f9; color: #333; }
+    header { background: #000000; color: #fff; padding: 1.5rem 2rem; text-align: center; }
+    header h1 { font-size: 2rem; }
+    nav a { color: #fff; margin: 0 1rem; text-decoration: none; font-weight: bold; }
+    nav a:hover { color: #00adb5; }
+    .hero { background: linear-gradient(135deg, #00adb5, #393e46); color: #fff; padding: 4rem 2rem; text-align: center; }
+    .hero h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+    .hero p { font-size: 1.2rem; margin-bottom: 2rem; }
+    .hero button { padding: 0.8rem 2rem; border: none; background: #222831; color: #fff; font-size: 1rem; border-radius: 8px; cursor: pointer; }
+    .hero button:hover { background: #00adb5; }
+    .section { padding: 3rem 2rem; text-align: center; }
+    .section h3 { font-size: 2rem; margin-bottom: 1.5rem; }
+    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; max-width: 1000px; margin: auto; }
+    .feature { background: #fff; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+    .contact { background: #000000; color: #fff; padding: 3rem 2rem; }
+    footer { background: #111; color: #aaa; text-align: center; padding: 1rem; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <header>
+  <div style="display: flex; align-items: center; gap: 8px;">
+    <span style="font-size: 2rem; color: rgb(255, 255, 255);">★</span>
+    <h1>Star</h1>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400&display=swap" rel="stylesheet">
+  <style>
+    h1 {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 4rem;
+      color: rgb(255, 255, 255);
+    }
+  </style>
+  </div>
+    <nav>
+      <a href="#features">Features</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+ <section class="hero">
+  <div class="bg-shapes">
+    <div class="shape star">⚡️</div>
+    <div class="shape heart">❤️</div>
+    <div class="shape hexagon">⚙️</div>
+    <div class="shape message">🛜</div>
+    <div class="shape circle">💌</div>
+  </div>
+
+  <h2>Discover Our Amazing App</h2>
+  <p>Star helps you stay connected, productive, and ahead of the curve.</p>
+ <button onclick="location.href='11.html'">Apps</button>
+
+
+  <style>
+    .hero {
+      position: relative;
+      text-align: center;
+      padding: 100px 20px;
+      background: #111;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .hero h2, .hero p, .hero button {
+      position: relative;
+      z-index: 2; /* keep text on top */
+    }
+
+    .hero h2 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero button {
+      padding: 0.8rem 2rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      background: #00adb5;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    /* Shapes container */
+    .bg-shapes {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .shape {
+      position: absolute;
+      font-size: 50px; /* size of shapes */
+      opacity: 0.5;
+      animation: float 10s linear infinite;
+    }
+
+    /* Different starting positions */
+    .star { top: 10%; left: -60px; animation-delay: 0s; }
+    .heart { top: 30%; left: -100px; animation-delay: 2s; }
+    .hexagon { top: 50%; left: -80px; animation-delay: 4s; }
+    .message { top: 70%; left: -120px; animation-delay: 6s; }
+    .circle { top: 85%; left: -90px; animation-delay: 8s; }
+
+    @keyframes float {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(120vw); }
+    }
+  </style>
+</section>
+
+
+  <section id="features" class="section">
+    <h3>Features</h3>
+    <div class="features">
+      <div class="feature">
+        <h4>⚡ Fast & Reliable</h4>
+        <p>Our app is optimized for speed and performance.</p>
+      </div>
+      <div class="feature">
+        <h4>🔒 Secure</h4>
+        <p>Top-notch security keeps your data safe.</p>
+      </div>
+      <div class="feature">
+        <h4>🌎 Global</h4>
+        <p>Stay connected with users around the world.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="section">
+
+    
+    <h3>About Us</h3>
+    <p>We are a tech-driven company focused on creating innovative apps that make life easier and more enjoyable.</p>
+  </section>
+
+  <section id="contact" class="contact">
+    <h3>Contact Us</h3>
+    <p>Email: satrcommunity2004@gmail.com</p>
+    <p>Phone:+91 7984240683</p>
+  </section>
+
+  <footer>
+    <p>© 2025 Star. All rights reserved.</p>
+  </footer>
+</body>
+</html>
